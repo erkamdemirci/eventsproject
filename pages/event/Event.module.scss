@@ -1,0 +1,359 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+
+  > * {
+    flex: 1;
+  }
+
+  @include for-size(tablet-landscape-up) {
+    flex-direction: row;
+  }
+
+  .description {
+    text-indent: 10px;
+    line-height: 22.5px;
+    font-size: 1rem;
+    font-family: 'SanomatSansLight';
+
+    p:first-child {
+      font-family: 'SanomatSansBold';
+      font-size: 1.25rem;
+    }
+  }
+
+  .ticket {
+    display: flex;
+    flex: 0.65;
+    flex-direction: column;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+
+    > * {
+      padding: 25px 20px;
+    }
+    .ticketHeader {
+      display: flex;
+      flex-direction: column;
+      background-color: $primary;
+      color: white;
+      gap: 5px;
+
+      .eventName {
+        font-family: 'SanomatSansBold';
+        font-size: 1.3rem;
+      }
+    }
+    .ticketContent {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      border-bottom: 3px dashed $theme-lightgray;
+      gap: 25px;
+
+      .formLineRow {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        > * {
+          flex: 1;
+        }
+      }
+      .formLine {
+        .submitButton {
+          cursor: pointer;
+          padding: 15px 20px;
+          font-size: 1.15rem;
+          font-family: 'SanomatSansMedium';
+          background-color: $success;
+          color: white;
+          outline: none;
+          border: none;
+          border-radius: $border-radius;
+
+          &:disabled,
+          &:hover:disabled,
+          &:active:disabled {
+            background: #ccc;
+            color: #979797;
+            border-color: #ccc;
+            cursor: not-allowed;
+          }
+        }
+
+        span {
+          font-size: 1.25rem;
+          font-family: 'SanomatSansXLight';
+        }
+
+        span.price {
+          font-size: 1.75rem;
+          text-align: right;
+          font-family: 'SanomatSansMedium';
+          padding-right: 10px;
+          color: $theme-green;
+
+          &.free {
+            color: $success;
+          }
+        }
+
+        label {
+          font-size: 1rem;
+          font-family: 'SanomatSansBold';
+          margin-bottom: 5px;
+          display: block;
+          color: $primary;
+          align-self: center;
+        }
+
+        .form-select {
+          background: #ffffff;
+          overflow: hidden;
+          border: 1px solid #cbcbcb;
+          border-radius: 3px;
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.07);
+
+          &:focus,
+          &:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          }
+
+          &:after {
+            content: '▾';
+            position: absolute;
+            top: 0;
+            right: 12px;
+            z-index: 1;
+            color: $primary;
+            line-height: 40px;
+            font-size: 14px;
+
+            .ie & {
+              display: none;
+            }
+          }
+        }
+
+        select {
+          position: relative;
+          background: transparent;
+          background-image: none;
+          display: block;
+          width: 100%;
+          outline: none;
+          color: $primary;
+          cursor: pointer;
+          z-index: 2;
+          border: 1px solid $theme-lightgray;
+          padding: 10px 10px 10px 5px;
+          text-overflow: '';
+          text-indent: 5px;
+
+          &[multiple='multiple'] {
+            height: auto;
+            border: 1px solid #cbcbcb;
+            border-radius: 3px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.07);
+
+            &:hover {
+              border-color: #cccccc;
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          option[disabled] {
+            color: #eeeeee;
+            text-shadow: none;
+            border: none;
+          }
+        }
+
+        select:-moz-focusring {
+          color: transparent;
+          text-shadow: 0 0 0 #888888;
+        }
+
+        select::-ms-expand {
+          display: none;
+        }
+      }
+    }
+
+    .ticketFooter {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+
+      .barcodeImage {
+        width: 100%;
+        min-width: 250px;
+        height: 60px;
+        position: relative;
+      }
+      span {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-family: 'SanomatSansXLight';
+        align-self: center;
+        font-size: 0.75rem;
+        padding: 0 40px;
+      }
+    }
+  }
+  .mapView {
+    flex: 1.75;
+    min-width: 300px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .slider {
+    width: 100%;
+    aspect-ratio: 2;
+  }
+
+  .topInfo {
+    align-items: center;
+    font-family: 'SanomatSansBold';
+    font-size: 1rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 2.5px;
+      color: $theme-green;
+    }
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    padding: 2.5px;
+    padding-left: 0;
+    color: $theme-green;
+  }
+
+  .eventInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+
+    h1 {
+      font-family: 'SanomatSansBold';
+      font-size: 1.5rem;
+      margin: 0;
+      line-height: 35px;
+      margin-top: 15px;
+    }
+
+    .category {
+      border: 2px dashed $primary;
+      color: $primary;
+      width: fit-content;
+      padding: 5px 15px;
+      border-radius: 50%/120% !important;
+      margin-bottom: 5px;
+
+      @include for-size(tablet-landscape-up) {
+        padding-left: 40px;
+        padding-right: 30px;
+        margin-left: -40px;
+        border-top-right-radius: 20px !important;
+        border-bottom-right-radius: 20px !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+      }
+    }
+
+    .moreInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+
+      .locations,
+      .dates {
+        display: flex;
+        gap: 2.5px;
+        align-items: center;
+        line-height: 22.5px;
+        font-size: 1rem;
+
+        .infoInner {
+          display: flex;
+          flex-direction: column;
+          font-family: 'SanomatSansRegular';
+
+          span {
+            margin-right: 3px;
+          }
+
+          .locationText {
+            color: $third;
+            font-family: 'SanomatSansBold';
+            cursor: pointer;
+            transition-duration: 300ms;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include for-size(tablet-landscape-up) {
+    gap: 30px;
+    flex-direction: row;
+
+    .slider {
+      width: 50%;
+      aspect-ratio: 2;
+    }
+
+    .eventInfo {
+      h1 {
+        font-size: 2.25rem;
+        line-height: 45px;
+      }
+
+      .description {
+        font-size: 1.05rem;
+      }
+
+      .moreInfo {
+        .locations,
+        .dates {
+          font-size: 1.1rem;
+
+          .infoInner {
+            display: flex;
+            flex-direction: row;
+            gap: 7.5px;
+          }
+        }
+      }
+    }
+  }
+}
