@@ -1,3 +1,9 @@
+import EventItem from '/components/EventItem';
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="container" style={{ width: '300px' }}>
+      <EventItem />
+    </div>
+  );
 }

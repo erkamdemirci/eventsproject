@@ -36,17 +36,18 @@ export function getFullDate(d) {
   var date = new Date(d);
 
   var day = date.getDate();
-  var month = date.getMonth() + 1;
+  var month = date.toLocaleDateString('tr-TR', { month: 'short' });
+  // var month = date.getMonth() + 1;
   var year = date.getFullYear();
 
   if (day < 10) {
     day = '0' + day;
   }
-  if (month < 10) {
-    month = '0' + month;
-  }
+  // if (month < 10) {
+  //   month = '0' + month;
+  // }
 
-  return day + '.' + month + '.' + year;
+  return day + ' ' + month + ' ' + year;
 }
 
 export function getFullTime(d) {

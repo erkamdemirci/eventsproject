@@ -107,8 +107,8 @@ function Event({ event }) {
 
             <div className={`${styles.formLine}`}>
               <label>Bilet Türü:</label>
-              <select onChange={classPickerHandler} name="" id="">
-                <option value="" disabled="disabled" selected="selected">
+              <select onChange={classPickerHandler} defaultValue="" name="" id="">
+                <option value="" disabled="disabled">
                   Seçiniz
                 </option>
                 {event.tickets.map((ticket, idx) => (
@@ -164,7 +164,6 @@ export async function getStaticProps(context) {
     }
   });
   const jsonData = await res.json();
-  console.log(jsonData.event);
 
   return {
     props: {

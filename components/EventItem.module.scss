@@ -1,0 +1,102 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+.eventItem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 340px;
+  height: 100%;
+  background-color: white;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  padding: 10px 15px;
+  margin: 2px;
+  cursor: pointer;
+  border: 2px solid $theme-lightgray;
+  transition: 300ms;
+
+  &:hover {
+    border: 2px solid $secondary;
+  }
+
+  .eventImage {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+
+    img {
+      border-radius: $border-radius;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .topInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    .eventDate {
+      font-size: 0.85rem;
+      color: $fourth;
+      font-family: 'SanomatSansBold';
+    }
+
+    .isPaid {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        margin-left: 3px;
+        color: $secondary;
+      }
+
+      span {
+        font-size: 0.75rem;
+        color: $secondary;
+        font-family: 'SanomatSansMedium';
+
+        &.paid {
+          color: $theme-green;
+        }
+        &.free {
+          color: $success;
+        }
+      }
+    }
+  }
+
+  .eventTitle {
+    font-family: 'SanomatSansBold';
+    font-size: 1.35rem;
+    margin: 0;
+  }
+
+  .eventLocation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      padding: 2.5px;
+      padding-left: 0;
+      color: $secondary;
+    }
+    span {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: $secondary;
+      font-family: 'SanomatSansMedium';
+    }
+  }
+}

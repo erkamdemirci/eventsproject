@@ -41,6 +41,10 @@ const EventSchema = new mongoose.Schema({
   isPaid: {
     type: Boolean,
     required: true
+  },
+  since: {
+    type: Date,
+    default: Date.now
   }
 });
 
