@@ -12,7 +12,7 @@
       @content;
     }
   } @else if $size == desktop-up {
-    @media (min-width: 1200px) {
+    @media (min-width: 1400px) {
       @content;
     }
   } @else if $size == big-desktop-up {

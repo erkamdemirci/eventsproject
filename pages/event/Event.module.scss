@@ -34,7 +34,8 @@
 
   .ticket {
     display: flex;
-    flex: 0.65;
+    flex: 0.5;
+    min-width: 400px;
     flex-direction: column;
     border-radius: 25px;
     overflow: hidden;
@@ -267,22 +268,12 @@
     }
 
     .category {
-      border: 2px dashed $primary;
+      border: 2px solid $primary;
       color: $primary;
       width: fit-content;
       padding: 5px 15px;
       border-radius: 50%/120% !important;
       margin-bottom: 5px;
-
-      @include for-size(tablet-landscape-up) {
-        padding-left: 40px;
-        padding-right: 30px;
-        margin-left: -40px;
-        border-top-right-radius: 20px !important;
-        border-bottom-right-radius: 20px !important;
-        border-top-left-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-      }
     }
 
     .moreInfo {

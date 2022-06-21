@@ -10,7 +10,7 @@ import 'swiper/css/thumbs';
 import styles from './EventSlider.module.scss';
 
 const EventSlider = ({ images }) => {
-  return images ? (
+  return images.length ? (
     <Swiper
       style={{
         '--swiper-navigation-color': '#fff',

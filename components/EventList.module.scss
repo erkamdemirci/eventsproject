@@ -1,15 +1,11 @@
 @import '../styles/variables';
 
 .eventList {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  overflow: hidden;
-  flex-wrap: 1;
-
   .infiniteScroll {
-    width: 100%;
     display: flex;
-    padding: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
   }
 }

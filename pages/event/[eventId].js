@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { API_URL } from '../../config';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import EventSlider from '../../components/EventSlider';
 import GoogleMap from '../../components/GoogleMap';
@@ -43,7 +44,9 @@ function Event({ event }) {
             <div className={styles.locations}>
               <LocationIcon classes={styles.icon} />
               <div className={styles.infoInner}>
-                <span className={styles.locationText}>{event.location}</span>
+                <Link href={'/location/' + event.location}>
+                  <span className={styles.locationText}>{event.location}</span>
+                </Link>
                 <span>{event.city}</span>
               </div>
             </div>
@@ -58,16 +61,16 @@ function Event({ event }) {
               <DateIcon classes={styles.icon} />
               <div className={styles.infoInner}>
                 <div>
-                  <span>{getDay(event.dates.start)}</span>
-                  <span>{getMonthLong(event.dates.start)}</span>
-                  <span>{getYear(event.dates.start)}</span>
-                  <span>{getFullTime(event.dates.start)}</span>
+                  <span>{getDay(event.starts)}</span>
+                  <span>{getMonthLong(event.starts)}</span>
+                  <span>{getYear(event.starts)}</span>
+                  <span>{getFullTime(event.starts)}</span>
                 </div>
-                {event.dates.finish && (
+                {event.ends && (
                   <div>
-                    <span>{getDay(event.dates.finish)}</span>
-                    <span>{getMonthLong(event.dates.finish)}</span>
-                    <span>{getYear(event.dates.finish)}</span>
+                    <span>{getDay(event.ends)}</span>
+                    <span>{getMonthLong(event.ends)}</span>
+                    <span>{getYear(event.ends)}</span>
                   </div>
                 )}
               </div>
@@ -86,11 +89,11 @@ function Event({ event }) {
             <div className={`${styles.formLine} ${styles.formLineRow}`}>
               <div>
                 <label>Tarih</label>
-                <span>{getFullDate(event.dates.start)}</span>
+                <span>{getFullDate(event.starts)}</span>
               </div>
               <div>
                 <label>Saat</label>
-                <span>{getFullTime(event.dates.start)}</span>
+                <span>{getFullTime(event.starts)}</span>
               </div>
             </div>
 
@@ -140,11 +143,11 @@ function Event({ event }) {
             <p>Açıklama:</p>
             <p>{event.description}</p>
           </div>
-          {event.coordinates && (
+          {/* {event.coordinates && (
             <div className={styles.mapView}>
               <GoogleMap coordinates={event.coordinates} locationName={event.location} />
             </div>
-          )}
+          )} */}
         </div>
 
         {/* <div className={styles.tmpMap} /> */}

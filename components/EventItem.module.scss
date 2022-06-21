@@ -2,22 +2,33 @@
 @import '../styles/variables';
 
 .eventItem {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 340px;
-  height: 100%;
-  background-color: white;
-  box-shadow: $box-shadow;
-  border-radius: $border-radius;
-  padding: 10px 15px;
-  margin: 2px;
+  padding: 5px;
   cursor: pointer;
-  border: 2px solid $theme-lightgray;
-  transition: 300ms;
 
-  &:hover {
-    border: 2px solid $secondary;
+  @include for-size(tablet-portrait-up) {
+    width: 50%;
+  }
+  @include for-size(tablet-landscape-up) {
+    width: 33%;
+  }
+  @include for-size(desktop-up) {
+    width: 25%;
+  }
+
+  .eventItemInner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    padding: 10px 15px;
+    border: 2px solid $theme-lightgray;
+    transition: 300ms;
+    &:hover {
+      border: 2px solid $secondary;
+    }
   }
 
   .eventImage {
@@ -63,7 +74,7 @@
         font-family: 'SanomatSansMedium';
 
         &.paid {
-          color: $theme-green;
+          color: $primary;
         }
         &.free {
           color: $success;
@@ -76,6 +87,7 @@
     font-family: 'SanomatSansBold';
     font-size: 1.35rem;
     margin: 0;
+    flex-grow: 1;
   }
 
   .eventLocation {
