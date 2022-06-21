@@ -13,7 +13,7 @@ const AllEvents = ({ allEvents, totalCount }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`${API_URL}/events/get-events`, {
+      const res = await fetch(`/events/get-events`, {
         method: 'POST',
         body: JSON.stringify({ page: 0, eventStatus: activeSection }),
         headers: {
@@ -31,7 +31,7 @@ const AllEvents = ({ allEvents, totalCount }) => {
 
   const fetchMore = async (dataType) => {
     if (filteredEvents.length < totalCount) {
-      const res = await fetch(`${API_URL}/events/get-events`, {
+      const res = await fetch(`/events/get-events`, {
         method: 'POST',
         body: JSON.stringify({ page: page + 1 }),
         headers: {
@@ -58,7 +58,7 @@ export async function getStaticProps(context) {
   let allEvents;
   let resultCount;
   try {
-    const res = await fetch(`${API_URL}/events/get-events`, {
+    const res = await fetch(`/events/get-events`, {
       method: 'POST',
       body: JSON.stringify({ page: 0 }),
       headers: {
