@@ -20,7 +20,7 @@ const HomeFilters = ({ updateFilters }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/filters/get-all-filters`, {
+      const res = await fetch(`/api/filters/get-all-filters`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

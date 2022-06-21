@@ -15,7 +15,7 @@ const Home = ({ allEvents, totalCount }) => {
 
   const fetchMore = async (dataType) => {
     if (filteredEvents.length < totalCount) {
-      const res = await fetch(`/events/get-events`, {
+      const res = await fetch(`/api/events/get-events`, {
         method: 'POST',
         body: JSON.stringify({ page: page + 1 }),
         headers: {
@@ -31,7 +31,7 @@ const Home = ({ allEvents, totalCount }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/events/get-filtered-events`, {
+      const res = await fetch(`/api/events/get-filtered-events`, {
         method: 'POST',
         body: JSON.stringify({ page: 0, filters }),
         headers: {
