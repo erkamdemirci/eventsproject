@@ -13,7 +13,7 @@ import { registerLocale, setDefaultLocale } from 'react-datepicker';
 import tr from 'date-fns/locale/tr';
 registerLocale('tr', tr);
 
-import { getDay, getMonthLong, getMonthShort, getFullDate, getYear } from '../../helpers/date-formatter';
+import { getDay, getMonthLong, getMonthShort, getFullDate, getYear, getDateRangeFormatter } from '../../helpers/date-formatter';
 
 import DateIcon from '../../assets/icons/date-icon';
 import LocationIcon from '../../assets/icons/location-icon';
@@ -68,20 +68,16 @@ function Event({ event }) {
             <div className={styles.dates}>
               <DateIcon classes={styles.icon} />
               <div className={styles.infoInner}>
-                <div>
-                  <span>{getDay(event.starts)}</span>
-                  <span>{getMonthLong(event.starts)}</span>
-                  <span>{getYear(event.starts)}</span>
-                </div>
-                {event.ends && (
-                  <>
-                    {'-'}
-                    <div>
-                      <span>{getDay(event.ends)}</span>
-                      <span>{getMonthLong(event.ends)}</span>
-                      <span>{getYear(event.ends)}</span>
-                    </div>
-                  </>
+                {event.ends ? (
+                  <div>
+                    <span>{getDateRangeFormatter(event.starts, event.ends)}</span>
+                  </div>
+                ) : (
+                  <div>
+                    <span>{getDay(event.starts)}</span>
+                    <span>{getMonthLong(event.starts)}</span>
+                    <span>{getYear(event.starts)}</span>
+                  </div>
                 )}
               </div>
             </div>
