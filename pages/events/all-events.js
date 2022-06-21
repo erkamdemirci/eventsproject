@@ -4,7 +4,6 @@ import EventList from '../../components/EventList';
 import SectionTitle from '../../components/SectionTitle';
 import EventStatusBar from '../../components/EventStatusBar';
 import { API_URL } from '../../config';
-import styles from './all-events.module.scss';
 
 const AllEvents = ({ allEvents, totalCount }) => {
   const [page, setPage] = useState(0);

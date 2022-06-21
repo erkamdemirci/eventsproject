@@ -4,6 +4,7 @@
 .eventItem {
   padding: 5px;
   cursor: pointer;
+  width: 100%;
 
   @include for-size(tablet-portrait-up) {
     width: 50%;
@@ -44,12 +45,19 @@
     }
   }
 
+  .eventDate {
+    font-size: 0.85rem;
+    color: $primary;
+    font-family: 'SanomatSansBold';
+  }
+
   .topInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    .eventDate {
+    margin: 3px 0;
+
+    .eventCategory {
       font-size: 0.85rem;
       color: $fourth;
       font-family: 'SanomatSansBold';

@@ -7,10 +7,26 @@
   aspect-ratio: 2;
   height: 100%;
   min-height: 200px;
+  max-height: 600px;
   display: flex;
   border-radius: $border-radius;
   overflow: hidden;
   box-shadow: $box-shadow;
+
+  .sliderTitle {
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    font-family: 'SanomatSansBold';
+    font-size: 1.5rem;
+
+    @include for-size(desktop-up) {
+      font-size: 2.5rem;
+    }
+  }
 
   img {
     display: block;

@@ -3,7 +3,7 @@ import Event from '../../../models/Event';
 
 const handler = async (req, res) => {
   if (req.method.toLocaleLowerCase('tr-TR') === 'post') {
-    const { page, eventStatus, locationName } = req.body;
+    const { page = 0, filters } = req.body;
 
     try {
       let events;
@@ -12,8 +12,8 @@ const handler = async (req, res) => {
         {
           $project: {
             name: 1,
-            category: 1,
             location: 1,
+            category: 1,
             images: 1,
             starts: {
               $dateFromString: {
@@ -25,24 +25,16 @@ const handler = async (req, res) => {
             _id: 1
           }
         },
-        { $match: {} },
         { $sort: { starts: 1 } }
       ];
 
-      if (eventStatus) {
-        let found = _aggregate.some((obj) => {
-          if ('$match' in obj) {
-            if (eventStatus === 'old') {
-              obj['$match'] = { starts: { $lt: new Date() } };
-            } else if (eventStatus === 'live') {
-              obj['$match'] = { starts: { $gte: new Date() } };
-            }
-          }
-        });
+      if (filters.date) {
+        _aggregate.unshift({ $match: { ends: { $gte: filters.date } } });
+        _aggregate.unshift({ $match: { starts: { $lte: filters.date } } });
       }
-
-      // must be set after eventStatus!!
-      if (locationName) _aggregate.unshift({ $match: { location: locationName } });
+      if (filters.category) _aggregate.unshift({ $match: { category: filters.category } });
+      if (filters.city) _aggregate.unshift({ $match: { city: filters.city } });
+      if (filters.location) _aggregate.unshift({ $match: { location: filters.location } });
 
       events = await Event.aggregate(_aggregate);
       resultCount = events.length;

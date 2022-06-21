@@ -8,7 +8,7 @@ const EventSlider = ({ coordinates, locationName }) => {
   return (
     <div className={styles.map}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyC-B-CxSk4qt4AStuNhTzH4R0OyK4HogAc' }}
+        bootstrapURLKeys={{ key: process.env.GOOGLE_MAP_KEY }}
         defaultCenter={{
           lat: parseFloat(coordinates.lat),
           lng: parseFloat(coordinates.lng)

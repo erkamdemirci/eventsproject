@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { motion } from 'framer-motion';
 
-import { getFullDate } from '../helpers/date-formatter';
+import { getDateRangeFormatter } from '../helpers/date-formatter';
 import styles from './EventItem.module.scss';
 
 import LocationIcon from '../assets/icons/location-icon';
@@ -25,8 +25,9 @@ const EventSlider = ({ event }) => {
             <div className={styles.eventImage}>
               <img src={event.images?.length ? event.images[0] : '/images/no-image.png'} alt="" />
             </div>
+            <div className={styles.eventDate}>{getDateRangeFormatter(event.starts, event.ends)}</div>
             <div className={styles.topInfo}>
-              <div className={styles.eventDate}>{getFullDate(event.starts)}</div>
+              <div className={styles.eventCategory}>{event.category}</div>
               <div className={styles.isPaid}>
                 <span className={`${event.isPaid ? styles.paid : styles.free}`}>{event.isPaid ? 'Ücretli' : 'Ücretsiz'}</span>
                 <div className={styles.icon}>

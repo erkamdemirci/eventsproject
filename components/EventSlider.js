@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 
@@ -9,7 +10,7 @@ import 'swiper/css/thumbs';
 
 import styles from './EventSlider.module.scss';
 
-const EventSlider = ({ images }) => {
+const EventSlider = ({ images, ids, titles }) => {
   return images.length ? (
     <Swiper
       style={{
@@ -21,11 +22,20 @@ const EventSlider = ({ images }) => {
       modules={[FreeMode, Navigation, Thumbs]}
       className={styles.sliderMain}
     >
-      {images.map((imageLink, idx) => (
-        <SwiperSlide key={idx}>
-          <img src={imageLink} alt="" />
-        </SwiperSlide>
-      ))}
+      {images.map((imageLink, idx) =>
+        ids ? (
+          <SwiperSlide key={idx} style={{ cursor: 'pointer' }}>
+            <div className={styles.sliderTitle}>{titles[idx]}</div>
+            <Link href={'/event/' + ids[idx]}>
+              <img src={imageLink} alt="" />
+            </Link>
+          </SwiperSlide>
+        ) : (
+          <SwiperSlide key={idx}>
+            <img src={imageLink} alt="" />
+          </SwiperSlide>
+        )
+      )}
     </Swiper>
   ) : (
     <div className={styles.noImage}>

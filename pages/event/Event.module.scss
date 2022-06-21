@@ -7,6 +7,18 @@
   gap: 30px;
 }
 
+.oldEvent {
+  display: block;
+  font-family: 'SanomatSansBold';
+  color: $theme-green;
+  text-align: center;
+  border: 1px dashed $theme-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .eventDetails {
   display: flex;
   flex-direction: column-reverse;
@@ -148,7 +160,8 @@
           }
         }
 
-        select {
+        select,
+        .datePicker {
           position: relative;
           background: transparent;
           background-image: none;
@@ -157,9 +170,8 @@
           outline: none;
           color: $primary;
           cursor: pointer;
-          z-index: 2;
           border: 1px solid $theme-lightgray;
-          padding: 10px 10px 10px 5px;
+          padding: 7.5px 5px;
           text-overflow: '';
           text-indent: 5px;
 
@@ -283,7 +295,8 @@
       margin-top: 10px;
 
       .locations,
-      .dates {
+      .dates,
+      .time {
         display: flex;
         gap: 2.5px;
         align-items: center;
@@ -335,13 +348,18 @@
 
       .moreInfo {
         .locations,
-        .dates {
+        .dates,
+        .time {
           font-size: 1.1rem;
 
           .infoInner {
             display: flex;
             flex-direction: row;
             gap: 7.5px;
+          }
+
+          span {
+            margin-top: 4px;
           }
         }
       }
