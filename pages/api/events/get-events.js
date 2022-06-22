@@ -5,7 +5,7 @@ const handler = async (req, res) => {
   if (req.method.toLocaleLowerCase('tr-TR') === 'post') {
     const { page, eventStatus, locationName } = req.body;
 
-    console.log(page, eventStatus, locationName);
+    // console.log(page, eventStatus, locationName);
 
     try {
       let events;
@@ -22,7 +22,11 @@ const handler = async (req, res) => {
                 dateString: '$starts'
               }
             },
-            ends: 1,
+            ends: {
+              $dateFromString: {
+                dateString: '$ends'
+              }
+            },
             isPaid: 1,
             _id: 1
           }
@@ -35,9 +39,9 @@ const handler = async (req, res) => {
         let found = _aggregate.some((obj) => {
           if ('$match' in obj) {
             if (eventStatus === 'old') {
-              obj['$match'] = { starts: { $lt: new Date() } };
+              obj['$match'] = { ends: { $lt: new Date() } };
             } else if (eventStatus === 'live') {
-              obj['$match'] = { starts: { $gte: new Date() } };
+              obj['$match'] = { ends: { $gte: new Date() } };
             }
           }
         });

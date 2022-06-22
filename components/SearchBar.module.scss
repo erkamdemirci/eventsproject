@@ -13,8 +13,13 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    font-size: 1.75rem;
+    font-size: 1rem;
     text-align: center;
+
+    @include for-size(tablet-portrait-up) {
+      font-size: 1.5rem;
+      padding: 10px 0;
+    }
   }
 
   .searchForm {

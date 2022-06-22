@@ -47,12 +47,19 @@
   .ticket {
     display: flex;
     flex: 0.5;
-    min-width: 400px;
     max-width: 100%;
     flex-direction: column;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: $box-shadow;
+
+    @include for-size(phone-only) {
+      width: 100%;
+    }
+
+    @include for-size(tablet-portrait-up) {
+      min-width: 400px;
+    }
 
     > * {
       padding: 25px 20px;
