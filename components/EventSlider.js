@@ -10,7 +10,7 @@ import 'swiper/css/thumbs';
 
 import styles from './EventSlider.module.scss';
 
-const EventSlider = ({ images, ids, titles }) => {
+const EventSlider = ({ images, ids, titles, classes }) => {
   return images.length ? (
     <Swiper
       style={{
@@ -20,7 +20,7 @@ const EventSlider = ({ images, ids, titles }) => {
       spaceBetween={10}
       navigation={images.length > 1}
       modules={[FreeMode, Navigation, Thumbs]}
-      className={styles.sliderMain}
+      className={`${styles.sliderMain}  ${classes}`}
     >
       {images.map((imageLink, idx) =>
         ids ? (
@@ -39,7 +39,7 @@ const EventSlider = ({ images, ids, titles }) => {
     </Swiper>
   ) : (
     <div className={styles.noImage}>
-      <img src={'/images/no-image.png'} alt="" />
+      <img src={'/images/no-image.jpg'} alt="" />
     </div>
   );
 };

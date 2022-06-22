@@ -33,7 +33,12 @@ const Navigation = () => {
             </li>
             <li>
               <Link href="/events/all-events">
-                <a onClick={navMenuClickHandler}>Tüm Etkinlikler</a>
+                <a onClick={navMenuClickHandler}>Etkinlikler</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/search">
+                <a onClick={navMenuClickHandler}>Etkinlik Ara</a>
               </Link>
             </li>
           </ul>
@@ -82,7 +87,12 @@ const Navigation = () => {
                 </li>
                 <li>
                   <Link href="/events/all-events">
-                    <a onClick={navMenuClickHandler}>Tüm Etkinlikler</a>
+                    <a onClick={navMenuClickHandler}>Etkinlikler</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/search">
+                    <a onClick={navMenuClickHandler}>Etkinlik Ara</a>
                   </Link>
                 </li>
               </ul>
@@ -110,9 +120,6 @@ const Navigation = () => {
             </p>
           </div>
         </div>
-        <Link href="/">
-          <span className={styles.navLogo}>Etkinliğini Bul</span>
-        </Link>
         <div className={styles.socialIcons}>
           <a href="https://www.linkedin.com/in/erkamdemirci">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 32 32">

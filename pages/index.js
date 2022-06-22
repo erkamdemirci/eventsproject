@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import EventList from '../components/EventList';
-import EventSlider from '../components/EventSlider';
+import HomeHeader from '../components/HomeHeader';
 import SectionTitle from '../components/SectionTitle';
 import HomeFilters from '../components/HomeFilters';
 
@@ -50,16 +50,8 @@ const Home = ({ allEvents, totalCount }) => {
 
   return (
     <div className="container">
-      <EventSlider
-        images={[
-          'https://storage.highresaudio.com/web/imgcache/21aa3e20476c901b88c2fdf3c363a8c9/ouj7du-newthreadq-master.jpg',
-          'https://www.dizidoktoru.com/images/haberler/2020/08/kucukciftlik_bahce_tiyatrosu_perdelerini_kapali_gise_acti_h3439_4eff6.jpg',
-          'https://i.dugun.com/articles/body/original_1-sait-halim-pasa-yalisi.jpg.jpg'
-        ]}
-        ids={['62aefa9e909bfa088e9a00a8', '62b0fcdb863de1c37da28f6b', '62b19465296c396025c3339a']}
-        titles={['New Thread Quartet', 'KüçükÇiftlik Bahçe Tiyatrosu', "Boğaz'da Yoga"]}
-      />
-      <SectionTitle title={'Etkinlik Bul'} desc={'Etkinliğe mi katılmak istiyorsun? Güncel etkinliklere gözat!'} />
+      <HomeHeader />
+      <SectionTitle title={'Etkinlik Keşfet'} desc={'Etkinliğe mi katılmak istiyorsun? Güncel etkinliklere gözat!'} />
       <HomeFilters filters={filters} updateFilters={setFilters} />
       <EventList events={filteredEvents} fetchMore={fetchMore} dataLength={totalResults} />
     </div>

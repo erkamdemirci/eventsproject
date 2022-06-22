@@ -1,0 +1,67 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+.header {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 50px;
+
+  @include for-size(tablet-landscape-up) {
+    text-align: left;
+    flex-direction: row;
+  }
+
+  > * {
+    flex: 1;
+  }
+
+  .header__right {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 15px 15px;
+
+    .welcomeTitle {
+      font-size: 1.5rem;
+      font-family: 'SanomatSansBold';
+      color: $primary;
+      margin: 0;
+
+      @include for-size(tablet-landscape-up) {
+        font-size: 1.5rem;
+      }
+      @include for-size(desktop-up) {
+        font-size: 2.25rem;
+      }
+    }
+
+    .subtitle {
+      font-family: 'SanomatSansRegular';
+      color: $theme-green;
+      font-size: 1rem;
+
+      @include for-size(tablet-landscape-up) {
+        font-size: 1.25rem;
+      }
+      @include for-size(desktop-up) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .desc {
+      font-family: 'SanomatSansLight';
+      font-weight: 200;
+      font-size: 1rem;
+
+      @include for-size(tablet-landscape-up) {
+        font-size: 1rem;
+      }
+      @include for-size(desktop-up) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

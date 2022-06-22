@@ -47,7 +47,7 @@ const AllEvents = ({ allEvents, totalCount }) => {
 
   return (
     <div className="container">
-      <SectionTitle title={'Etkinlikler'} desc={'Aradığınız tüm etkinlikler burada!'} />
+      <SectionTitle title={'Güncel Etkinlikler'} desc={'Gündemdeki tüm etkinlikler burada!'} />
       <EventStatusBar activeSection={activeSection} setActiveSection={setActiveSection} />
       <EventList events={filteredEvents} fetchMore={fetchMore} dataLength={totalResults} />
     </div>

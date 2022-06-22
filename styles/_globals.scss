@@ -150,7 +150,7 @@ $container-sizes: (
 );
 
 .container {
-  padding: 1rem;
+  padding: 0 0.75rem;
 
   &:not(.is-fluid) {
     margin: 0 auto;

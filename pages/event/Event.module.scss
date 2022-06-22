@@ -4,7 +4,7 @@
 .sections {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .oldEvent {
@@ -240,7 +240,6 @@
 
   .slider {
     width: 100%;
-    aspect-ratio: 2;
   }
 
   .topInfo {
@@ -284,8 +283,8 @@
       border: 2px solid $primary;
       color: $primary;
       width: fit-content;
-      padding: 5px 15px;
-      border-radius: 50%/120% !important;
+      padding: 7.5px 15px;
+      border-radius: 50%/150% !important;
       margin-bottom: 5px;
     }
 
@@ -334,7 +333,6 @@
 
     .slider {
       width: 50%;
-      aspect-ratio: 2;
     }
 
     .eventInfo {

@@ -23,7 +23,7 @@ const EventSlider = ({ event }) => {
         >
           <div className={styles.eventItemInner}>
             <div className={styles.eventImage}>
-              <img src={event.images?.length ? event.images[0] : '/images/no-image.png'} alt="" />
+              <img src={event.images?.length ? event.images[0] : '/images/no-image.jpg'} alt="" />
             </div>
             <div className={styles.eventDate}>{getDateRangeFormatter(event.starts, event.ends)}</div>
             <div className={styles.topInfo}>

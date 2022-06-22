@@ -3,10 +3,10 @@
 .filterBar {
   width: 100%;
   display: flex;
-  margin: 15px 0;
   gap: 10px;
   align-items: flex-end;
   flex-wrap: wrap;
+  padding-bottom: 20px;
 
   > * {
     flex: 1;
@@ -111,7 +111,6 @@
     outline: none;
     color: $primary;
     cursor: pointer;
-    z-index: 2;
     border: 1px solid $theme-lightgray;
     padding: 10px 10px 10px 5px;
     text-overflow: '';

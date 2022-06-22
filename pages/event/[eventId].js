@@ -39,6 +39,9 @@ function Event({ event }) {
 
   return (
     <div className={`container ${styles.sections}`}>
+      {!(new Date(event.starts) > new Date() || new Date(event.ends) > new Date()) && (
+        <div className={styles.oldEvent}>Bu etkinliğin süresi dolmuş :(</div>
+      )}
       <header className={styles.header}>
         <div className={styles.slider}>
           <EventSlider images={event.images} />
@@ -88,9 +91,6 @@ function Event({ event }) {
           </div>
         </div>
       </header>
-      {!(new Date(event.starts) > new Date() || new Date(event.ends) > new Date()) && (
-        <div className={styles.oldEvent}>Bu etkinliğin süresi dolmuş :(</div>
-      )}
 
       <div className={styles.eventDetails}>
         {(new Date(event.starts) > new Date() || new Date(event.ends) > new Date()) && (
