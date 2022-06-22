@@ -14,7 +14,7 @@ const Home = ({ allEvents, totalCount }) => {
   const [filters, setFilters] = useState();
 
   const fetchMore = async (dataType) => {
-    if (filteredEvents.length < totalCount) {
+    if (filteredEvents.length < totalResults) {
       const res = await fetch(`/api/events/get-events`, {
         method: 'POST',
         body: JSON.stringify({ page: page + 1 }),

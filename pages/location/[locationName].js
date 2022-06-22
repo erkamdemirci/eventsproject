@@ -30,7 +30,7 @@ const Location = ({ allEvents, totalCount, locationName }) => {
   }, [activeSection, locationName]);
 
   const fetchMore = async () => {
-    if (filteredEvents.length < totalCount) {
+    if (filteredEvents.length < totalResults) {
       const res = await fetch(`/api/events/get-events`, {
         method: 'POST',
         body: JSON.stringify({ page: page + 1 }),

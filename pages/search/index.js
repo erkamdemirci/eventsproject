@@ -69,14 +69,27 @@ const Search = () => {
     }
   }, [term]);
 
-  const fetchMore = () => {
+  const fetchMore = async () => {
     if ((searchText || term) && filteredEvents.length < resultCount) {
-      axios.get(`/api/search?term=${searchText ? searchText : term}&page=${page + 1}`).then((response) => {
-        if (response.data) {
-          setFilteredEvents((filteredEvents) => [...filteredEvents, ...response.data.recipes]);
-          setPage(page + 1);
+      const res = await fetch(`/api/search?term=${searchText ? searchText : term}&page=${page + 1}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
         }
       });
+
+      const data = await res.json();
+
+      if (data.events) {
+        setFilteredEvents((filteredEvents) => [...filteredEvents, ...data.events]);
+        setResultCount(data.resultCount);
+        setPage(page + 1);
+        setLoading(false);
+      } else {
+        setResultCount(0);
+        setNotFound(true);
+        setLoading(false);
+      }
     }
   };
 
