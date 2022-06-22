@@ -12,6 +12,7 @@ const AllEvents = ({ allEvents, totalCount }) => {
   const [totalResults, setTotalResults] = useState(totalCount);
 
   useEffect(() => {
+    setFilteredEvents();
     const fetchData = async () => {
       const res = await fetch(`/api/events/get-events`, {
         method: 'POST',
@@ -23,8 +24,8 @@ const AllEvents = ({ allEvents, totalCount }) => {
       const data = await res.json();
 
       setFilteredEvents(data.events);
-      setPage(0);
       setTotalResults(data.resultCount);
+      setPage(0);
     };
     fetchData();
   }, [activeSection]);
@@ -33,7 +34,7 @@ const AllEvents = ({ allEvents, totalCount }) => {
     if (filteredEvents.length < totalResults) {
       const res = await fetch(`/api/events/get-events`, {
         method: 'POST',
-        body: JSON.stringify({ page: page + 1 }),
+        body: JSON.stringify({ page: page + 1, eventStatus: activeSection ? activeSection : '' }),
         headers: {
           'Content-Type': 'application/json'
         }

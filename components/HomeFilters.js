@@ -10,7 +10,7 @@ registerLocale('tr', tr);
 
 import { API_URL } from '../config';
 
-const HomeFilters = ({ updateFilters }) => {
+const HomeFilters = ({ updateFilters, setPage }) => {
   const [date, setDate] = useState();
   const [categories, setCategories] = useState();
   const [locations, setLocations] = useState();
@@ -54,6 +54,7 @@ const HomeFilters = ({ updateFilters }) => {
   function resetHandler(e) {
     setFilters();
     setDate();
+    setPage(0);
     updateFilters({});
   }
 

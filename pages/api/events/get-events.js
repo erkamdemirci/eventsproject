@@ -5,6 +5,8 @@ const handler = async (req, res) => {
   if (req.method.toLocaleLowerCase('tr-TR') === 'post') {
     const { page, eventStatus, locationName } = req.body;
 
+    console.log(page, eventStatus, locationName);
+
     try {
       let events;
       let resultCount;
